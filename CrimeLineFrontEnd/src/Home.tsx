@@ -22,9 +22,7 @@ function Home() {
     const [cases, setCases] = useState<FormData[]>(() => {
         const savedCases = localStorage.getItem('cases');
         return savedCases ? JSON.parse(savedCases) : [
-          { id: '1', caseName: 'Case1', type: 'Murder', description: 'Tom Died' },
-          { id: '2', caseName: 'Case2', type: 'Murder', description: 'Jennica murdered Tom' },
-          { id: '3', caseName: 'Case3', type: 'Murder', description: 'Leanne murdered Tom' }
+          { id: '1', caseName: 'Bank Robbery', type: 'Robber', description: 'Caps Bank was robbed on Monday 14th October 2024' }
         ];
       });
     
@@ -41,15 +39,6 @@ function Home() {
           });
         }
       }, [newCase]);
-
-      useEffect(() => {
-        const deleteCaseName = ''; // Replace with the name of the case you want to delete
-        setCases(prevCases => {
-          const updatedCases = prevCases.filter(caseData => caseData.caseName !== deleteCaseName);
-          localStorage.setItem('cases', JSON.stringify(updatedCases));
-          return updatedCases;
-        });
-      }, []);
 
       const handleCardClick = (caseName: string) => {
         navigate(`/case/${caseName}`);
