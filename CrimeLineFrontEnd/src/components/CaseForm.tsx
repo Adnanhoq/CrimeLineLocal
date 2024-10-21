@@ -19,15 +19,8 @@ interface FormData {
 }
 
 function CaseForm({ onSubmit }) {
-
-    interface CaseFormProps {
-        onSubmit: (formData: FormData) => void;
-      }
-      const navigate = useNavigate();
-      
-      const navigateToPage = (formData: FormData) => {
-          navigate("/", { state: {formData} });
-      };
+  
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<Omit<FormData, 'id'>>({
     caseName: '',

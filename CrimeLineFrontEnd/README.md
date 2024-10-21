@@ -50,14 +50,12 @@ export default tseslint.config({
 ```
 
 
-npm create vite@latest
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p         
-npm i -D react-router-dom@latest      
-npm install react-router-dom  
-npm install uuid
-npm install @azure/storage-blob
-npm i --save-dev @types/node - This is for the process.env
-npm install buffer
-npm i --save-dev @types/uuid
-npm run dev
+## To run the document:
+```js 
+  npm run dev
+```
+
+## To run the Linter:
+```js
+  npm run lint
+```
