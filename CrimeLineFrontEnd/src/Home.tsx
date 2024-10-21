@@ -40,6 +40,15 @@ function Home() {
         }
       }, [newCase]);
 
+      useEffect(() => {
+        const deleteCaseName = ''; // Replace with the name of the case you want to delete
+        setCases(prevCases => {
+          const updatedCases = prevCases.filter(caseData => caseData.caseName !== deleteCaseName);
+          localStorage.setItem('cases', JSON.stringify(updatedCases));
+          return updatedCases;
+        });
+      }, []);
+
       const handleCardClick = (caseName: string) => {
         navigate(`/case/${caseName}`);
     };

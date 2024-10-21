@@ -4,6 +4,7 @@ import CrimeLineFooter from './components/Footer';
 import { useState } from 'react';
 import { BlobServiceClient } from '@azure/storage-blob';
 import { Buffer } from 'buffer';
+import { v4 as uuidv4 } from 'uuid';
 
 if (typeof global !== 'undefined') {
     global.Buffer = Buffer;
@@ -63,6 +64,7 @@ function CaseDetail() {
         );
         const containerClient = blobServiceClient.getContainerClient(containerName);
 
+        fileName = uuidv4() + "_" +fileName;
         const blobClient = containerClient.getBlockBlobClient(`${folderName}/witnessStatements/${fileName}`);
         const blobOptions = { blobHTTPHeaders: { blobContentType: contentType } };
         await blobClient.upload(fileContent, fileContent.length, blobOptions);
