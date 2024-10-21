@@ -22,7 +22,7 @@ function Home() {
     const [cases, setCases] = useState<FormData[]>(() => {
         const savedCases = localStorage.getItem('cases');
         return savedCases ? JSON.parse(savedCases) : [
-          { id: '1', caseName: 'Bank Robbery', type: 'Robber', description: 'Caps Bank was robbed on Monday 14th October 2024' }
+          { id: '1', caseName: 'Bank_Robbery', type: 'Robber', description: 'Caps Bank was robbed on Monday 14th October 2024' }
         ];
       });
     
