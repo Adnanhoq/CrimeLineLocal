@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import NewInvestigation from './newInvestigation';
-import CaseDetail from './caseDetail';
-
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import NewInvestigation from "./newInvestigation";
+import CaseDetail from "./caseDetail";
 
 interface FormData {
   leadInvestigator: string;
@@ -13,7 +12,6 @@ interface FormData {
   investigators: string;
   description: string;
 }
-
 
 const App: React.FC = () => {
   const [cases, setCases] = useState<FormData[]>([]);
@@ -26,7 +24,10 @@ const App: React.FC = () => {
     <>
       <Routes>
         <Route path="/" element={<Home cases={cases} />} />
-        <Route path="/new-investigation" element={<NewInvestigation addCase={addCase} />} />
+        <Route
+          path="/new-investigation"
+          element={<NewInvestigation addCase={addCase} />}
+        />
         <Route path="/case/:caseName" element={<CaseDetail />} />
       </Routes>
     </>

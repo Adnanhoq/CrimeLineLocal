@@ -1,5 +1,5 @@
-import React from 'react';
-import CrimeLineHeader from "./components/Header";    
+import React from "react";
+import CrimeLineHeader from "./components/Header";
 import CrimeLineFooter from "./components/Footer";
 import CaseForm from "./components/CaseForm";
 
@@ -14,7 +14,12 @@ const NewInvestigation: React.FC<NewInvestigationProps> = ({ addCase }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <CrimeLineHeader title="Create a new case" showButton={true} navigatePath = {"/"} buttonText={"Home"}/>
+      <CrimeLineHeader
+        title="Create a new case"
+        showButton={true}
+        navigatePath={"/"}
+        buttonText={"Home"}
+      />
       <div className="flex-grow flex flex-col p-10">
         <CaseForm onSubmit={handleFormSubmit} />
       </div>
