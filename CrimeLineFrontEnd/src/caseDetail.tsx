@@ -13,8 +13,10 @@ if (typeof global !== "undefined") {
 }
 
 function CaseDetail() {
-  const { caseName } = useParams<{ caseName: string }>();
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [errors, setErrors] = useState<string[]>([]);
 
+  const { caseName } = useParams<{ caseName: string }>();
   const [files, setFiles] = useState<File[]>([]);
 
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -27,19 +29,21 @@ function CaseDetail() {
     event.preventDefault();
     console.log("Files to be uploaded:", files);
 
+    const newUploadedFiles: string[] = [];
+    const newErrors: string[] = [];
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const fileName = file.name;
       const fileContent = await file.arrayBuffer();
       let contentType = "";
 
-      if (fileName.endsWith(".mp4")) {
-        contentType = "video/mp4";
-      } else if (fileName.endsWith(".mp3")) {
+      if (fileName.endsWith(".mp3")) {
         contentType = "audio/mpeg";
       } else if (fileName.endsWith(".pdf")) {
         contentType = "application/pdf";
       } else {
+        newErrors.push(`Unsupported file type: ${fileName}`);
         console.error("Unsupported file type:", fileName);
         continue;
       }
@@ -50,8 +54,12 @@ function CaseDetail() {
         Buffer.from(fileContent),
         contentType,
       );
+      newUploadedFiles.push(fileName);
       console.log("Uploaded:", fileName);
     }
+
+    setUploadedFiles(newUploadedFiles);
+    setErrors(newErrors);
   }
 
   const uploadWitnessStatements = async (
@@ -114,6 +122,25 @@ function CaseDetail() {
             </ul>
           </div>
         )}
+        <div className="mt-4 text-green-500">
+          {uploadedFiles.length > 0 && (
+            <p>
+              {uploadedFiles.map((file, index) => (
+                <span key={index}> {file} </span>
+              ))}
+              uploaded successfully!
+            </p>
+          )}
+        </div>
+        <div className="mt-4 text-red-500">
+          {errors.length > 0 && (
+            <p>
+              {errors.map((error, index) => (
+                <span key={index}>{error}</span>
+              ))}
+            </p>
+          )}
+        </div>
       </div>
       <CrimeLineFooter />
     </div>
