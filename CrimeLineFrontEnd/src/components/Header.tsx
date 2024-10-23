@@ -3,7 +3,7 @@ import DeadMan from "../assets/CrimeImage.jpg";
 import { useNavigate } from "react-router-dom";
 
 interface CrimeLineHeaderProps {
-  title: string;
+  title: string | undefined;
   showButton: boolean;
   navigatePath: string;
   buttonText: string;

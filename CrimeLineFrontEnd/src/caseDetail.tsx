@@ -17,7 +17,7 @@ function CaseDetail() {
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
 
-  const { caseName } = useParams<{ caseName: string }>();
+  const { caseName = "" } = useParams<{ caseName: string }>();
   const [files, setFiles] = useState<File[]>([]);
 
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {

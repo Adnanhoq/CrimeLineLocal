@@ -3,12 +3,19 @@ import CrimeLineHeader from "./components/Header";
 import CrimeLineFooter from "./components/Footer";
 import CaseForm from "./components/CaseForm";
 
+interface newInvestigationFormData {
+  id: string;
+  caseName: string;
+  type: string;
+  description: string;
+}
+
 interface NewInvestigationProps {
-  addCase: (formData: FormData) => void;
+  addCase: (formData: newInvestigationFormData) => void;
 }
 
 const NewInvestigation: React.FC<NewInvestigationProps> = ({ addCase }) => {
-  const handleFormSubmit = (formData: FormData) => {
+  const handleFormSubmit = (formData: newInvestigationFormData) => {
     addCase(formData);
   };
 

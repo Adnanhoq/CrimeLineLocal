@@ -10,7 +10,7 @@ if (typeof global !== "undefined") {
   window.Buffer = Buffer;
 }
 
-interface FormData {
+interface newInvestigationFormData {
   id: string;
   caseName: string;
   type: string;
@@ -18,13 +18,15 @@ interface FormData {
 }
 
 interface CaseFormProps {
-  onSubmit: (formData: FormData) => void;
+  onSubmit: (formData: newInvestigationFormData) => void;
 }
 
 const CaseForm: React.FC<CaseFormProps> = ({ onSubmit }) => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState<Omit<FormData, "id">>({
+  const [formData, setFormData] = useState<
+    Omit<newInvestigationFormData, "id">
+  >({
     caseName: "",
     type: "",
     description: "",
