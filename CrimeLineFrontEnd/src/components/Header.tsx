@@ -1,7 +1,20 @@
+import React from "react";
 import DeadMan from "../assets/CrimeImage.jpg";
 import { useNavigate } from "react-router-dom";
 
-function CrimeLineHeader({ title, showButton, navigatePath, buttonText }) {
+interface CrimeLineHeaderProps {
+  title: string;
+  showButton: boolean;
+  navigatePath: string;
+  buttonText: string;
+}
+
+const CrimeLineHeader: React.FC<CrimeLineHeaderProps> = ({
+  title,
+  showButton,
+  navigatePath,
+  buttonText,
+}) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -38,6 +51,6 @@ function CrimeLineHeader({ title, showButton, navigatePath, buttonText }) {
       </header>
     </>
   );
-}
+};
 
 export default CrimeLineHeader;

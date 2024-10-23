@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "./components/Card.tsx";
 import CrimeLineHeader from "./components/Header.tsx";
 import CrimeLineFooter from "./components/Footer.tsx";

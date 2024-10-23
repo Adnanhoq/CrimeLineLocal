@@ -17,7 +17,11 @@ interface FormData {
   description: string;
 }
 
-function CaseForm({ onSubmit }) {
+interface CaseFormProps {
+  onSubmit: (formData: FormData) => void;
+}
+
+const CaseForm: React.FC<CaseFormProps> = ({ onSubmit }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<Omit<FormData, "id">>({
@@ -131,6 +135,6 @@ function CaseForm({ onSubmit }) {
       </form>
     </div>
   );
-}
+};
 
 export default CaseForm;

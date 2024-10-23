@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import CrimeLineHeader from "./components/Header";
 import CrimeLineFooter from "./components/Footer";
