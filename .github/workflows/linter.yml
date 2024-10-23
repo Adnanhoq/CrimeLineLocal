@@ -1,0 +1,25 @@
+name: Linter
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: |
+          cd CrimeLineFrontEnd
+          npm install
+
+      - name: Run linter
+        run: |
+          cd CrimeLineFrontEnd
+          npm run lint
