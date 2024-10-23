@@ -1,10 +1,10 @@
-import React from "react";
 import Card from "./components/Card.tsx";
 import CrimeLineHeader from "./components/Header.tsx";
 import CrimeLineFooter from "./components/Footer.tsx";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 interface FormData {
   id: string;
