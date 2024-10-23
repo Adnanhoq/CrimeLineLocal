@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "npx prettier . --check"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.25.0",

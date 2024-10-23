@@ -60,7 +60,7 @@ function CaseDetail() {
       console.log("Uploaded:", fileName);
       setUploadedFiles(newUploadedFiles);
     }
-    
+
     setErrors(newErrors);
   }
 
