@@ -24,6 +24,7 @@ function CaseDetail() {
     if (event.target.files) {
       setFiles(Array.from(event.target.files));
     }
+    setUploadedFiles([]);
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -57,9 +58,9 @@ function CaseDetail() {
       );
       newUploadedFiles.push(fileName);
       console.log("Uploaded:", fileName);
+      setUploadedFiles(newUploadedFiles);
     }
-
-    setUploadedFiles(newUploadedFiles);
+    
     setErrors(newErrors);
   }
 
